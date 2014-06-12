@@ -12,9 +12,14 @@ class TestWorkingGrid(unittest.TestCase):
         expected1 = (0, 9)
         actual1 = self.wg_obj.lookup(0, 0)
         self.assertEqual(expected1, actual1)
+
         expected2 = (10, 19)
         actual2 = self.wg_obj.lookup(0, 1)
         self.assertEqual(expected2, actual2)
+
+        expected3 = (40, 49)
+        actual3 = self.wg_obj.lookup(1, 0)
+        self.assertEqual(expected3, actual3)
 
 
 if __name__ == "__main__":

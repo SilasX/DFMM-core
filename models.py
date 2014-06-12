@@ -7,5 +7,7 @@ class WorkingGrid(object):
     def lookup(self, row, column):
         """Given a zero-indexed row and column position, return the range of picture numbers that corresponded to that position in DFMM, as a tuple of (low, high)
         """
-        low = 10 * column * (row + 1)
+        # width should be factor1_size + factor2_size - 1
+        width = self.factor1_size + self.factor2_size - 1
+        low = 10 * width * row + 10 * column
         return (low, low + 9)
