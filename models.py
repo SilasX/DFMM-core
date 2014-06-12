@@ -9,5 +9,9 @@ class WorkingGrid(object):
         """
         # width should be factor1_size + factor2_size - 1
         width = self.factor1_size + self.factor2_size - 1
+        if column > width:  # check too far to left
+            return None
+        if row > self.factor2_size - 1:  # check too far down
+            return None
         low = 10 * width * row + 10 * column
         return (low, low + 9)

@@ -21,6 +21,15 @@ class TestWorkingGrid(unittest.TestCase):
         actual3 = self.wg_obj.lookup(1, 0)
         self.assertEqual(expected3, actual3)
 
+    def test_position_to_range_invalid(self):
+        expected1 = None
+        actual1 = self.wg_obj.lookup(1, 5)
+        self.assertEqual(expected1, actual1)
+
+        expected2 = None
+        actual2 = self.wg_obj.lookup(2, 3)
+        self.assertEqual(expected2, actual2)
+
 
 if __name__ == "__main__":
     unittest.main()
