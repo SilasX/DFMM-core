@@ -30,6 +30,15 @@ class TestWorkingGrid(unittest.TestCase):
         actual2 = self.wg_obj.lookup(2, 3)
         self.assertEqual(expected2, actual2)
 
+    #def test_position_to_range_grid_carry(self):
+    #    expected1 = (80, 89)
+    #    actual1 = self.wg_obj.grid_carry_lookup(0)
+    #    self.assertEqual(expected1, actual1)
+
+    #    expected2 = (90, 99)
+    #    actual2 = self.wg_obj.grid_carry_lookup(1)
+    #    self.assertEqual(expected2, actual2)
+
 
 if __name__ == "__main__":
     unittest.main()
