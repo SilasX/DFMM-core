@@ -40,15 +40,6 @@ class TestWorkingGrid(unittest.TestCase):
             with self.assertRaises(models.InvalidDigit) as cm:
                 self.wg_obj.write_index(digit, 1, 2)
 
-    #def test_position_to_range_grid_carry(self):
-    #    expected1 = (80, 89)
-    #    actual1 = self.wg_obj.grid_carry_lookup_range(0)
-    #    self.assertEqual(expected1, actual1)
-
-    #    expected2 = (90, 99)
-    #    actual2 = self.wg_obj.grid_carry_lookup_range(1)
-    #    self.assertEqual(expected2, actual2)
-
 
 if __name__ == "__main__":
     unittest.main()

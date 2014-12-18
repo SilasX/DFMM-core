@@ -27,8 +27,6 @@ the picture to be looked at for writing
     def _offset(self, row, column):
         """Helper function for finding offset given row and column"""
         return row * 10 * self.width + column * 10
-    #def grid_carry_lookup(self, column):
-    #
 
 
 class InvalidDigit(Exception):
