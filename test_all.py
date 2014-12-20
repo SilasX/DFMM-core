@@ -66,5 +66,31 @@ class TestFinalAnswer(unittest.TestCase):
             self.fa_obj.write(4, 3)
             self.fa_obj.write(9, 3)
 
+
+class TestProblem(unittest.TestCase):
+
+    def test_work_through_prob1(self):
+        # 386 * 27 = 9126
+        prob = models.Problem(386, 27)
+        expected_width = 3
+        actual_width = prob.working_grid.width
+        self.assertEqual(expected_width, actual_width)
+
+        expected_ans_array = [2, 2, 4, 0, 1]
+        actual_ans_array = prob.final_answer.answer_arr
+        self.assertEqual(expected_ans_array, actual_ans_array)
+
+    def test_work_through_prob2(self):
+        # 54 * 199 = 10746
+        prob = models.Problem(54, 199)
+        expected_width = 2
+        actual_width = prob.working_grid.width
+        self.assertEqual(expected_width, actual_width)
+
+        expected_ans_array = [6, 4, 7, 0, 1]
+        actual_ans_array = prob.final_answer.answer_arr
+        self.assertEqual(expected_ans_array, actual_ans_array)
+
+
 if __name__ == "__main__":
     unittest.main()

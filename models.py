@@ -1,6 +1,22 @@
 import math
 
 
+def num_digits(integer):
+    """Helper for returning number of base-ten digits of an integer
+    """
+    return int(math.floor(math.log10(integer))) + 1
+
+
+class Problem(object):
+
+    def __init__(self, factor_top, factor_bottom):
+        top_size = num_digits(factor_top)
+        bottom_size = num_digits(factor_bottom)
+        self.working_grid = WorkingGrid(top_size, bottom_size)
+        answer = factor_top * factor_bottom
+        self.final_answer = FinalAnswer.from_int(answer)
+
+
 class WorkingGrid(object):
 
     def __init__(self, factor1_size, factor2_size):
@@ -43,7 +59,7 @@ highest values of the array).
         """
         cur_array = []
         temp_val = answer_val
-        size = int(math.floor(math.log10(answer_val))) + 1
+        size = num_digits(answer_val)
         for x in range(size):
             cur_array.append(temp_val % 10)
             temp_val /= 10
@@ -78,7 +94,7 @@ class InvalidDigit(Exception):
 
 
 class OverwriteAnswer(Exception):
-    
+
     def __init__(self, index):
         self.message = "Tried to write answer in position {}, \
             which had already been written.".format(index)
