@@ -17,7 +17,7 @@ class TestWorkingGrid(unittest.TestCase):
         actual2 = self.wg_obj.lookup_range(0, 1)
         self.assertEqual(expected2, actual2)
 
-        expected3 = (40, 49)
+        expected3 = (30, 39)
         actual3 = self.wg_obj.lookup_range(1, 0)
         self.assertEqual(expected3, actual3)
 
@@ -40,6 +40,31 @@ class TestWorkingGrid(unittest.TestCase):
             with self.assertRaises(models.InvalidDigit) as cm:
                 self.wg_obj.write_index(digit, 1, 2)
 
+
+class TestWorkingGridArbitrary(unittest.TestCase):
+
+    def setUp(self):
+        self.wg_obj = models.WorkingGrid(5, 3)
+
+    def test_position_to_range_within_grid(self):
+        expected1 = (60, 69)
+        actual1 = self.wg_obj.lookup_range(1, 1)
+        self.assertEqual(expected1, actual1)
+
+
+class TestFinalAnswer(unittest.TestCase):
+
+    def setUp(self):
+        self.fa_obj = models.FinalAnswer([5, 4, 3, 0, 1])
+
+    def test_check_is_correct(self):
+        self.fa_obj.write(5, 0)
+        self.assertFalse(self.fa_obj.is_correct())
+
+    def test_cant_overwrite_answer(self):
+        with self.assertRaises(models.OverwriteAnswer) as cm:
+            self.fa_obj.write(4, 3)
+            self.fa_obj.write(9, 3)
 
 if __name__ == "__main__":
     unittest.main()
