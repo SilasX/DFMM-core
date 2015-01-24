@@ -1,4 +1,6 @@
 venv
+mydata.db
 *.db
 *.pyc
 *.swp
+db.sqlite3
